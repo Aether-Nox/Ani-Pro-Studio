@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Manga Pro",
+  "version": "13.7",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabCapture",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  
+  "action": {
+    "default_title": "Launch Translator Studio",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["jszip.min.js", "jspdf.umd.min.js", "dist/advanced_renderer.js", "dist/content.js"],
+      "all_frames": true
+    }
+  ]
+}
